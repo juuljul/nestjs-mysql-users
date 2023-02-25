@@ -2,7 +2,10 @@ import {
     Column,
     Entity,
     PrimaryGeneratedColumn,
+    JoinColumn,
+    OneToOne
   } from 'typeorm';
+import { Identity } from './Identity';
   
   @Entity({ name: 'users' })
   export class User {
@@ -17,6 +20,10 @@ import {
   
     @Column()
     dateCreation: Date;
+
+    @OneToOne(() => Identity)
+    @JoinColumn()
+    identity: Identity;
   
   }
   
