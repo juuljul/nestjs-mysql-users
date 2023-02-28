@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { User } from './typeorm/entities/User';
 import { Identity } from './typeorm/entities/Identity';
 import { UsersModule } from './users/users.module';
+import { Vehicle } from './typeorm/entities/Vehicle';
 
 
 @Module({
@@ -16,7 +17,7 @@ import { UsersModule } from './users/users.module';
       username: '',
       password: '',
       database: '',
-      entities: [User, Identity],
+      entities: [User, Identity, Vehicle],
       synchronize: true,
     }),
     UsersModule,

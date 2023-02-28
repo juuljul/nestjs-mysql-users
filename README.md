@@ -2,7 +2,7 @@
 
 
 
-Projet créé avec le framework __NestJS__ et le système de gestion de base de données __MySQL__. Possibilité de créer, récupérer, mettre à jour, supprimer des users, de les relier à une fiche d'identité (relation one-to-one).
+Projet créé avec le framework __NestJS__ et le système de gestion de base de données __MySQL__. Possibilité de créer, récupérer, mettre à jour, supprimer des users, de les relier à une fiche d'identité (relation one-to-one), de créer des véhicules appartenant à un user (relation one-to-many).
 
 
 
@@ -55,3 +55,19 @@ Pour lire les fiches d'identité dans MySQL
 SELECT * from user_identities;
 ```
 
+Pour créer un véhicule d'un user avec un certain id
+http://localhost:3000/users/id/vehicles, méthode POST avec un body
+
+```
+{
+    "typeVehicle":"...",
+    "brand":"...",
+    "dateCreation":...
+}
+```
+
+Pour lire les véhicules dans MySQL
+
+```
+SELECT * from user_vehicles;
+```

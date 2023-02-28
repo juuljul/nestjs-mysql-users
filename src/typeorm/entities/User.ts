@@ -3,9 +3,11 @@ import {
     Entity,
     PrimaryGeneratedColumn,
     JoinColumn,
-    OneToOne
+    OneToOne,
+    OneToMany
   } from 'typeorm';
 import { Identity } from './Identity';
+import { Vehicle } from './Vehicle';
   
   @Entity({ name: 'users' })
   export class User {
@@ -24,6 +26,8 @@ import { Identity } from './Identity';
     @OneToOne(() => Identity)
     @JoinColumn()
     identity: Identity;
-  
+
+    @OneToMany(() => Vehicle, (vehicle) => vehicle.user)
+    vehicles: Vehicle[];
   }
   

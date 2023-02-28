@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Post, Put, Param, ParseIntPipe} from '@nestjs/common';
 import { CreateUserDto } from '../../dtos/CreateUser.dto';
 import { CreateUserIdentityDto } from '../../dtos/CreateUserIdentity.dto';
+import { CreateUserVehicleDto } from '../../dtos/CreateUserVehicle.dto';
 import { UpdateUserDto } from '../../dtos/UpdateUser.dto';
 import { UsersService } from '../../services/users/users.service';
 
@@ -38,6 +39,14 @@ export class UsersController {
     @Body() createUserIdentityDto: CreateUserIdentityDto,
   ) {
     return this.userService.createUserIdentity(id, createUserIdentityDto);
+  }
+
+  @Post(':id/vehicles')
+  createUserVehicle(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() createUserVehicleDto: CreateUserVehicleDto,
+  ) {
+    return this.userService.createUserVehicle(id, createUserVehicleDto);
   }
 
 

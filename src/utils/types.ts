@@ -14,3 +14,9 @@ export type CreateUserIdentityParams = {
   dateOfBirth: string;
   cityOfBirth: string;
 };
+
+export type CreateUserVehicleParams = {
+  typeVehicle: string;
+  brand: string;
+  dateCreation: number;
+};
